@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HospitalService1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HospitalService1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="getAllApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="allApp" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getAllApp" nillable="true" type="tns:getAllApp" />
+  <xs:complexType name="getAllDoctors">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="allDoctor" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getAllDoctors" nillable="true" type="tns:getAllDoctors" />
+  <xs:complexType name="Doctor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="d_address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="d_contact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="d_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="d_experience" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="d_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="d_speciality" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Doctor" nillable="true" type="tns:Doctor" />
+  <xs:complexType name="deleteDoctor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="d_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="deleteDoctor" nillable="true" type="tns:deleteDoctor" />
+  <xs:complexType name="Patient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="p_contact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="p_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="p_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="p_passwd1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="p_passwd2" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Patient" nillable="true" type="tns:Patient" />
+  <xs:complexType name="BookApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="a_date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="a_desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ad_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ap_email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookApp" nillable="true" type="tns:BookApp" />
+</xs:schema>

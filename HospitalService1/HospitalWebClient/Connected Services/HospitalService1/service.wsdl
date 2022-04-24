@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HospitalService1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/HospitalService1" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHospitalService1_getallapp_InputMessage">
+    <wsdl:part name="parameters" element="tns:getallapp" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_getallapp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getallappResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_getDoctors_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDoctors" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_getDoctors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDoctorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_insertDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_insertDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_updateDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_updateDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_deleteDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_deleteDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_validCredential_InputMessage">
+    <wsdl:part name="parameters" element="tns:validCredential" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_validCredential_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_ptvalidCredential_InputMessage">
+    <wsdl:part name="parameters" element="tns:ptvalidCredential" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_ptvalidCredential_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ptvalidCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_insertPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertPatient" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_insertPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_updatePatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatient" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_updatePatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:logout" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:logoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_bookAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:bookAppointment" />
+  </wsdl:message>
+  <wsdl:message name="IHospitalService1_bookAppointment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:bookAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHospitalService1">
+    <wsdl:operation name="getallapp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/getallapp" message="tns:IHospitalService1_getallapp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/getallappResponse" message="tns:IHospitalService1_getallapp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDoctors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/getDoctors" message="tns:IHospitalService1_getDoctors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/getDoctorsResponse" message="tns:IHospitalService1_getDoctors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/insertDoctor" message="tns:IHospitalService1_insertDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/insertDoctorResponse" message="tns:IHospitalService1_insertDoctor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/updateDoctor" message="tns:IHospitalService1_updateDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/updateDoctorResponse" message="tns:IHospitalService1_updateDoctor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/deleteDoctor" message="tns:IHospitalService1_deleteDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/deleteDoctorResponse" message="tns:IHospitalService1_deleteDoctor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validCredential">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/validCredential" message="tns:IHospitalService1_validCredential_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/validCredentialResponse" message="tns:IHospitalService1_validCredential_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ptvalidCredential">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/ptvalidCredential" message="tns:IHospitalService1_ptvalidCredential_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/ptvalidCredentialResponse" message="tns:IHospitalService1_ptvalidCredential_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/insertPatient" message="tns:IHospitalService1_insertPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/insertPatientResponse" message="tns:IHospitalService1_insertPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/updatePatient" message="tns:IHospitalService1_updatePatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/updatePatientResponse" message="tns:IHospitalService1_updatePatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/logout" message="tns:IHospitalService1_logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/logoutResponse" message="tns:IHospitalService1_logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="bookAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService1/bookAppointment" message="tns:IHospitalService1_bookAppointment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService1/bookAppointmentResponse" message="tns:IHospitalService1_bookAppointment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHospitalService1" type="tns:IHospitalService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getallapp">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/getallapp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctors">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/getDoctors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDoctor">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/insertDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDoctor">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/updateDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDoctor">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/deleteDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validCredential">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/validCredential" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ptvalidCredential">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/ptvalidCredential" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertPatient">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/insertPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatient">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/updatePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookAppointment">
+      <soap:operation soapAction="http://tempuri.org/IHospitalService1/bookAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HospitalService1">
+    <wsdl:port name="BasicHttpBinding_IHospitalService1" binding="tns:BasicHttpBinding_IHospitalService1">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/HospitalService1/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

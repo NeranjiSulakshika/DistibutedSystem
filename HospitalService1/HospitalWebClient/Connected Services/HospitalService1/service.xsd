@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/HospitalService1" />
+  <xs:element name="getallapp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getallappResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="getallappResult" nillable="true" type="q1:getAllApp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDoctors">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDoctorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="getDoctorsResult" nillable="true" type="q2:getAllDoctors" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertDoctor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="doctor" nillable="true" type="q3:Doctor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertDoctorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertDoctorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateDoctor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="doctor" nillable="true" type="q4:Doctor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateDoctorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateDoctorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteDoctor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="dd" nillable="true" type="q5:deleteDoctor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteDoctorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deleteDoctorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validCredential">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validCredentialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validCredentialResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ptvalidCredential">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="useremail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ptvalidCredentialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ptvalidCredentialResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertPatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="patient" nillable="true" type="q6:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertPatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertPatientResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="patient" nillable="true" type="q7:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logout">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bookAppointment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HospitalService1" minOccurs="0" name="bapp" nillable="true" type="q8:BookApp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bookAppointmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookAppointmentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
