@@ -1,0 +1,22 @@
+.sidebar {
+  width: 280px;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: #0f9a99;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.logo-sidebar {
+  width: 80%;
+}
+.nav-pills .nav-link {
+  border-radius: 15px;
+}
+.active {
+  color: #0c6464 !important;
+  background-color: #ccf1da !important;
+}
