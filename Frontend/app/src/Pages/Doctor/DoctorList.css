@@ -1,0 +1,59 @@
+.orderListItems {
+  border-radius: 5rem;
+  border-color: #ffffff;
+  background-color: #0f9a99;
+  border-width: 14px;
+  height: 50px;
+  font-size: 18px;
+}
+
+.order {
+  width: 100%;
+  color: #ffffff;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+.orderListItems td:first-child,
+th:first-child {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.orderListItems td:last-child,
+th:last-child {
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  width: 7%;
+}
+.Order-Button-Add {
+  background-color: #ccf1da;
+  color: #0c6464;
+  padding: 12px;
+  border: soild 1px #0c6464;
+  width: 12%;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.Order-Button-Report {
+  background-color: #ccf1da;
+  color: #0c6464;
+  padding: 12px;
+  border: soild 1px #0c6464;
+  width: 12%;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 2%;
+}
+.Order-Button-Report:hover,
+.Order-Button-Add:hover {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+.OrderRow {
+  padding-top: 15px;
+}

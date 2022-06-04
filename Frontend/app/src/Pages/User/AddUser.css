@@ -1,0 +1,75 @@
+.AddUser {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+  opacity: 85%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #021010;
+}
+
+.User-Create-Heading-Container {
+  background-color: #012929;
+  padding: 15px 10px 10px 10px;
+  border: solid 1px #012929;
+  border-radius: 20px;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 1%;
+  margin-top: 3%;
+}
+
+.User-Create-Body-Container {
+  background-color: #012929;
+  padding: 5px 10px 15px 10px;
+  border: solid 1px #012929;
+  padding: 20px;
+  border-radius: 15px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.form-control {
+  border-radius: 10px;
+  width: relative;
+}
+
+.User-Button-Reset {
+  background-color: #ccf1da;
+  color: #0c6464;
+  padding: 12px;
+  border: soild 1px #0c6464;
+  border: none;
+  margin: 10px 0;
+  width: 22%;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.User-Button-Add {
+  background-color: #ccf1da;
+  color: #0c6464;
+  padding: 12px;
+  border: soild 1px #0c6464;
+  border: none;
+  margin: 10px 0;
+  width: 22%;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 5%;
+}
+
+.User-Button-Reset:hover,
+.User-Button-Add:hover {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+
+.Register-User-Heading {
+  text-align: center;
+  font-weight: bold;
+  color: #9ce6b7;
+}

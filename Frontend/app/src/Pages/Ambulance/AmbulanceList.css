@@ -1,0 +1,67 @@
+.driverListItems {
+  border-radius: 5rem;
+  border-color: #ffffff;
+  background-color: #0f9a99;
+  border-width: 14px;
+  height: 50px;
+  font-size: 18px;
+}
+
+.driverList {
+  width: 100%;
+  color: #ffffff;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+.driverListItems td:first-child,
+th:first-child {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.odriverListItems td:last-child,
+th:last-child {
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  width: 7%;
+}
+
+.Driver-Button-Report {
+  background-color: #ccf1da;
+  color: #0c6464;
+  padding: 12px;
+  border: soild 1px #0c6464;
+  margin: 10px 0;
+  width: 12%;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 2%;
+}
+.Driver-Button-List-Add {
+  background-color: #ccf1da;
+  color: #0c6464;
+  padding: 12px;
+  border: soild 1px #0c6464;
+  margin: 10px 0;
+  width: 15%;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 85%;
+}
+
+.Driver-Button-Report:hover,
+.Driver-Button-List-Add:hover {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  margin-right: 15px;
+}

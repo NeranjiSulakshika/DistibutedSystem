@@ -1,0 +1,63 @@
+.UpdateItem {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+  opacity: 85%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ffffff;
+}
+
+.Item-Update-Heading-Container {
+  background-color: #0f9a99;
+  padding: 5px 10px 15px 10px;
+  border: solid 1px #0f9a99;
+  padding: 20px;
+  border-radius: 20px;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 1%;
+  margin-top: 3%;
+}
+
+.Item-Update-Body-Container {
+  background-color: #0f9a99;
+  padding: 5px 10px 15px 10px;
+  border: solid 1px #0f9a99;
+  padding: 20px;
+  border-radius: 15px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.form-control {
+  border-radius: 10px;
+  width: relative;
+}
+
+.Item-Button-Update {
+  background-color: #ccf1da;
+  color: #0c6464;
+  padding: 12px;
+  border: soild 1px #0c6464;
+  border: none;
+  margin: 10px 0;
+  width: 30%;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 35%;
+}
+
+.Item-Button-Update:hover {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+
+.Update-Item-Heading {
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+}
