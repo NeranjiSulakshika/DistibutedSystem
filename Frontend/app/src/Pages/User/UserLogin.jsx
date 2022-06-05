@@ -61,7 +61,7 @@ export default class UserLogin extends Component {
           }else if (res.data.roles[0] === "ROLE_DOCTOR"){
             window.location = "/about"
           }else if(res.data.roles[0] === "ROLE_PATIENT"){
-            window.location = "/createPatient"
+            window.location = "/about"
           }else{
             console.log("cant find role =>" + res.data.roles[0])
           }
