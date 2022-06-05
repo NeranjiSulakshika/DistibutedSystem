@@ -33,6 +33,7 @@
 .form-control {
   border-radius: 10px;
   width: relative;
+  color: #000000;
 }
 
 .Item-Button-Update {

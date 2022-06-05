@@ -28,11 +28,7 @@ export default class DoctorList extends Component {
 
   async componentDidMount() {
 
-    // this.setState({
-    //   role: localStorage.setItem("role")
-    // });
-
-  const doctors = await axios.get(doctorURL, {
+  await axios.get(doctorURL, {
       headers: {
         'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
         'Accept': 'application/json'
@@ -47,10 +43,47 @@ export default class DoctorList extends Component {
   }
 
   async delete(doctorId) {
-    await axios.delete(deletedoctorURL+"/"+doctorId).then((res) => {
-      console.error("Response Data => "+res.data);
-      console.log(deletedoctorURL+"/"+doctorId);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
     });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you want to delete " + doctorId + " doctor?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your doctor " + doctorId + " has been deleted.",
+            "success"
+          );
+          axios.delete(deletedoctorURL + doctorId, {
+            headers: {
+              'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
+              'Accept': 'application/json'
+            }
+          }).then(() => {
+            this.componentDidMount();
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your " + doctorId + " doctor record is safe :)",
+            "error"
+          );
+        }
+      });
   };
 
   setRedirect = () => {
@@ -118,7 +151,8 @@ export default class DoctorList extends Component {
                       <FontAwesomeIcon
                         size="2x"
                         icon={faTrash}
-                        onClick={(e) => this.delete(doctor.doctorId)}
+                        onClick={(e) => {this.delete(doctor.doctorId); console.log(doctor.doctorId);}
+                      }
                       />
                     </td>
                   </tr>

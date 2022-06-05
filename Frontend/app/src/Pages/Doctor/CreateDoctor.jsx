@@ -44,7 +44,7 @@ export default class CreateDoctor extends Component {
         icon: "success",
         title: "Insert Successful!!!",
       }).then(() => {
-        window.location = "//doctorList";
+        window.location = "/doctorList";
       });
     });
   };

@@ -21,7 +21,7 @@ export default class UpdateRoom extends Component {
   }
 
   async componentDidMount() {
-    let roomNo = localStorage.getItem("updateId");
+    let roomNo = localStorage.getItem("roomNo");
     await axios.get(getroomIDURL + roomNo, {
       headers: {
         'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
@@ -39,7 +39,7 @@ export default class UpdateRoom extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let invenID = localStorage.getItem("updateId");
+    // let invenID = localStorage.getItem("updateId");
     const data = {
       roomNo: this.state.roomNo,
       roomType: this.state.roomType,
@@ -93,9 +93,11 @@ export default class UpdateRoom extends Component {
                       className="form-control"
                       type="text"
                       id="roomNo"
+                      readOnly="true"
                       name="roomNo"
                       placeholder="Room No"
                       required
+                      value={this.state.roomNo}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -110,6 +112,7 @@ export default class UpdateRoom extends Component {
                     name="roomType"
                     placeholder="Type"
                     required
+                    value={this.state.roomType}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -124,6 +127,7 @@ export default class UpdateRoom extends Component {
                     name="roomAvailability"
                     placeholder="Availability"
                     required
+                    value={this.state.roomAvailability}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -138,6 +142,7 @@ export default class UpdateRoom extends Component {
                     name="roomPrice"
                     placeholder="price"
                     required
+                    value={this.state.roomPrice}
                     onChange={this.handleChange}
                   />
                 </div>

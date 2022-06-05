@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { addUserURL } from "../../Services/endpoints";
 import Swal from "sweetalert2";
+import { imagePath } from "../../Services";
 
 
 export default class AddUser extends Component {
@@ -60,11 +61,13 @@ export default class AddUser extends Component {
   render() {
     return (
       <div className="AddUser">
-       
+        <div className="d-flex justify-content-center">
+          <img src={imagePath + `logo.png`} alt="" className="logo-login" />
+        </div>
         <div className="content-layer">
           
           <div className="User-Create-Heading-Container">
-            <h3 className="Register-User-Heading">Add User</h3>
+            <h3 className="Register-User-Heading">Patient Registration</h3>
           </div>
           <div className="User-Create-Body-Container">
             <form onSubmit={this.handleSubmit}>

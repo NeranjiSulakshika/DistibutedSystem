@@ -20,8 +20,8 @@ export default class AmbulanceUpdate extends Component {
     };
   }
   async componentDidMount() {
-    let id = localStorage.getItem("updateId");
-    await axios.get(getambulanceIDURL + id, {
+    let vehicleNo = localStorage.getItem("vehicleNo");
+    await axios.get(getambulanceIDURL + vehicleNo, {
       headers: {
         'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
         'Accept': 'application/json'
@@ -78,12 +78,14 @@ export default class AmbulanceUpdate extends Component {
                 <label className="col-sm-3 col-form-label">Vehicle No :</label>
                 <div className="col-sm-9">
                   <input
-                    className="form-control"
+                    className="form-control textField"
                     type="text"
+                    readOnly="true"
                     id="vehicleNo"
                     name="vehicleNo"
                     placeholder="vehicle No"
                     required
+                    value={this.state.vehicleNo}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -98,6 +100,7 @@ export default class AmbulanceUpdate extends Component {
                     name="vehicleOwnerName"
                     placeholder="Vehicle Name"
                     required
+                    value={this.state.vehicleOwnerName}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -112,6 +115,7 @@ export default class AmbulanceUpdate extends Component {
                     name="availableLocation"
                     placeholder="available Location"
                     required
+                    value={this.state.availableLocation}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -126,6 +130,7 @@ export default class AmbulanceUpdate extends Component {
                     name="vehicleType"
                     placeholder="Vehicle Type"
                     required
+                    value={this.state.vehicleType}
                     onChange={this.handleChange}
                   />
                 </div>

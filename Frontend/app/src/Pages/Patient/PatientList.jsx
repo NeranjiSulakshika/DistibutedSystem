@@ -39,10 +39,47 @@ export default class PatientList extends Component {
   }
 
   async delete(nic) {
-    await axios.delete(deletepaitientURL+"/"+nic).then((res) => {
-      console.error("Response Data => "+res.data);
-      console.log(deletepaitientURL+"/"+nic);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
     });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you want to delete " + nic + " patient?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your patient " + nic + " has been deleted.",
+            "success"
+          );
+          axios.delete(deletepaitientURL + nic, {
+            headers: {
+              'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
+              'Accept': 'application/json'
+            }
+          }).then(() => {
+            this.componentDidMount();
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your " + nic + " patient record is safe :)",
+            "error"
+          );
+        }
+      });
   };
 
 

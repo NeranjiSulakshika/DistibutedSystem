@@ -38,10 +38,47 @@ export default class RoomList extends Component {
   }
 
   async delete(roomNo) {
-    await axios.delete(deleteroomURL+"/"+roomNo).then((res) => {
-      console.error("Response Data => "+res.data);
-      console.log(deleteroomURL+"/"+roomNo);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
     });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you want to delete " + roomNo + " room?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your room " + roomNo + " has been deleted.",
+            "success"
+          );
+          axios.delete(deleteroomURL + roomNo, {
+            headers: {
+              'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
+              'Accept': 'application/json'
+            }
+          }).then(() => {
+            this.componentDidMount();
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your " + roomNo + " room record is safe :)",
+            "error"
+          );
+        }
+      });
   };
 
 

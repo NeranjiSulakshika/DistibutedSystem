@@ -40,10 +40,47 @@ export default class AppointmentList extends Component {
   }
 
   async delete(appointmentId) {
-    await axios.delete(deleteapoinmentURL+"/"+appointmentId).then((res) => {
-      console.error("Response Data => "+res.data);
-      console.log(deleteapoinmentURL+"/"+appointmentId);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
     });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you want to delete " + appointmentId + " appointment?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your appointment " + appointmentId + " has been deleted.",
+            "success"
+          );
+          axios.delete(deleteapoinmentURL + appointmentId, {
+            headers: {
+              'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
+              'Accept': 'application/json'
+            }
+          }).then(() => {
+            this.componentDidMount();
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your " + appointmentId + " appointment record is safe :)",
+            "error"
+          );
+        }
+      });
   };
 
   setRedirect = () => {

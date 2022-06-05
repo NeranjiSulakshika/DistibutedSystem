@@ -25,11 +25,13 @@ export default class UpdateDoctor extends Component {
 
   async componentDidMount() {
     let doctorId = localStorage.getItem("updateId");
+    console.log(doctorId);
     await axios.get(getdoctorIDURL + doctorId, {
       headers: {
         'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
         'Accept': 'application/json'
       }
+      
     }).then((result) => {
       this.setState({
         doctorId: result.data.doctorId,
@@ -37,8 +39,11 @@ export default class UpdateDoctor extends Component {
         specialization: result.data.specialization,
         mobileNo: result.data.mobileNo,
         location: result.data.location,
+        
       });
+      
     });
+    
   }
 
   handleSubmit = (e) => {
@@ -97,7 +102,7 @@ export default class UpdateDoctor extends Component {
                   <div className="ui fluid col-sm-9">
                     <input
                       className="form-control"
-                      
+                      readOnly="true"
                       type="text"
                       id="doctorId"
                       name="doctorId"

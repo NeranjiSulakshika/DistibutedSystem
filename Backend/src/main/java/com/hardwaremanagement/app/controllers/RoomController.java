@@ -28,8 +28,8 @@ public class RoomController {
         return roomRepository.findAll();
     }
 
-    @GetMapping("getById")
-    public Optional<Room> getRooms(@PathVariable String id){
+    @GetMapping("getById/{id}")
+    public Optional<Room> getRooms(@PathVariable("id") String id){
         return roomRepository.findById(id);
     }
 

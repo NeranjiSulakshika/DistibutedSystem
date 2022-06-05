@@ -40,10 +40,47 @@ export default class AmbulanceList extends Component {
   }
 
    async delete(vehicleNo) {
-    await axios.delete(deleteambulanceURL+"/"+vehicleNo).then((res) => {
-      console.error("Response Data => "+res.data);
-      console.log(deleteambulanceURL+"/"+vehicleNo);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
     });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you want to delete " + vehicleNo + " Ambulance?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your ambulance " + vehicleNo + " has been deleted.",
+            "success"
+          );
+          axios.delete(deleteambulanceURL + vehicleNo, {
+            headers: {
+              'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
+              'Accept': 'application/json'
+            }
+          }).then(() => {
+            this.componentDidMount();
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your " + vehicleNo + " Ambulance record is safe :)",
+            "error"
+          );
+        }
+      });
   };
 
   setRedirect = () => {

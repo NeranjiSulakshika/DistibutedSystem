@@ -33,8 +33,12 @@
 .form-control {
   border-radius: 10px;
   width: relative;
-  color:#ffffff;
+  color:black;
 }
+
+/* .textField {
+  color: black;
+} */
 
 .Driver-Button-Update {
   background-color: #ccf1da;

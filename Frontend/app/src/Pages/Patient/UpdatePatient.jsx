@@ -22,7 +22,7 @@ export default class UpdatePatient extends Component {
   }
 
   async componentDidMount() {
-    let nic = localStorage.getItem("updateId");
+    let nic = localStorage.getItem("nic");
     await axios.get(getpatientIDURL + nic, {
       headers: {
         'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
@@ -41,7 +41,7 @@ export default class UpdatePatient extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let invenID = localStorage.getItem("updateId");
+    // let invenID = localStorage.getItem("updateId");
     const data = {
       nic: this.state.nic,
       firstName: this.state.firstName,
@@ -86,10 +86,12 @@ export default class UpdatePatient extends Component {
                     <input
                       className="form-control"
                       type="text"
+                      readOnly="true"
                       id="nic"
                       name="nic"
                       placeholder="NIC"
                       required
+                      value={this.state.nic}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -104,6 +106,7 @@ export default class UpdatePatient extends Component {
                     name="firstName"
                     placeholder="John Doe"
                     required
+                    value={this.state.firstName}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -118,6 +121,7 @@ export default class UpdatePatient extends Component {
                     name="lastName"
                     placeholder="John Doe"
                     required
+                    value={this.state.lastName}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -132,6 +136,7 @@ export default class UpdatePatient extends Component {
                     name="email"
                     placeholder="abc@abc.com"
                     required
+                    value={this.state.email}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -146,6 +151,7 @@ export default class UpdatePatient extends Component {
                     name="address"
                     placeholder="12/3 1st st"
                     required
+                    value={this.state.address}
                     onChange={this.handleChange}
                   />
                 </div>

@@ -22,7 +22,7 @@ export default class UpdateAttendant extends Component {
   }
 
   async componentDidMount() {
-    let id = localStorage.getItem("updateId");
+    let id = localStorage.getItem("attendentId");
     await axios.get(getattedentIDURL + id, {
       headers: {
         'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
@@ -41,7 +41,7 @@ export default class UpdateAttendant extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let invenID = localStorage.getItem("updateId");
+    // let invenID = localStorage.getItem("updateId");
     const data = {
       id: this.state.id,
       firstName: this.state.firstName,
@@ -98,8 +98,10 @@ export default class UpdateAttendant extends Component {
                       type="text"
                       id="id"
                       name="id"
+                      readOnly="true"
                       placeholder="Attendent ID"
                       required
+                      value={this.state.id}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -114,6 +116,7 @@ export default class UpdateAttendant extends Component {
                     name="firstName"
                     placeholder="First Name"
                     required
+                    value={this.state.firstName}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -128,6 +131,7 @@ export default class UpdateAttendant extends Component {
                     name="lastName"
                     placeholder="Last Name"
                     required
+                    value={this.state.lastName}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -142,6 +146,7 @@ export default class UpdateAttendant extends Component {
                     name="workingWard"
                     placeholder="Working Ward"
                     required
+                    value={this.state.workingWard}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -156,6 +161,7 @@ export default class UpdateAttendant extends Component {
                     name="contactNo"
                     placeholder="Contact No"
                     required
+                    value={this.state.contactNo}
                     onChange={this.handleChange}
                   />
                 </div>

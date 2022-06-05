@@ -126,8 +126,8 @@ public class AttendantController {
         return attendantRepository.findAll();
     }
 
-    @GetMapping("getById")
-    public Optional<Attendant> getAttendant(@PathVariable String id){
+    @GetMapping("getById/{id}")
+    public Optional<Attendant> getAttendant(@PathVariable("id") String id){
         return attendantRepository.findById(id);
     }
 

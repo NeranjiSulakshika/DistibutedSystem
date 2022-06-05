@@ -27,8 +27,8 @@ public class AppointmentController {
         return appointmentRepository.findAll();
     }
 
-    @GetMapping("getById")
-    public Optional<Appointment> getAppointment(@PathVariable String id){
+    @GetMapping("getById/{id}")
+    public Optional<Appointment> getAppointment(@PathVariable("id") String id){
         return appointmentRepository.findById(id);
     }
 

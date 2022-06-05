@@ -27,7 +27,7 @@ export default class CreatePatient extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const data = {
-      nic: localStorage.getItem("id"),
+      nic: this.state.nic,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
@@ -78,7 +78,7 @@ export default class CreatePatient extends Component {
                       type="text"
                       id="nic"
                       name="nic"
-                      value={localStorage.getItem("id")}
+                      // value={localStorage.getItem("id")}
                       placeholder="nic"
                       required
                       onChange={this.handleChange}

@@ -27,8 +27,8 @@ public class AmbulanceController {
         return ambulanceRepository.findAll();
     }
 
-    @GetMapping("getById")
-    public Optional<Ambulance> getAmbulance(@PathVariable String id){
+    @GetMapping("getById/{id}")
+    public Optional<Ambulance> getAmbulance(@PathVariable("id") String id){
         return ambulanceRepository.findById(id);
     }
 

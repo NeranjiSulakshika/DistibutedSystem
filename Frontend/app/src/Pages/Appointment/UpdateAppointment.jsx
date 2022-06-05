@@ -25,7 +25,7 @@ export default class UpdateAppointment extends Component {
   };
 
   async componentDidMount() {
-    let appointmentId = localStorage.getItem("updateId");
+    let appointmentId = localStorage.getItem("appointmentId");
     await axios.get(getapointmentIDURL + appointmentId, {
       headers: {
         'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
@@ -43,7 +43,7 @@ export default class UpdateAppointment extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let appointmentId = localStorage.getItem("updateId");
+    // let appointmentId = localStorage.getItem("updateId");
     const data = {
       appointmentId: this.state.appointmentId,
       patientId: this.state.patientId,
@@ -87,6 +87,8 @@ export default class UpdateAppointment extends Component {
                     name="appointmentId"
                     placeholder="AppointmentId"
                     required
+                    readOnly="true"
+                    value={this.state.appointmentId}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -101,6 +103,7 @@ export default class UpdateAppointment extends Component {
                     name="patientId"
                     placeholder="PatientId"
                     required
+                    value={this.state.patientId}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -115,6 +118,7 @@ export default class UpdateAppointment extends Component {
                     name="startTime"
                     placeholder="Start Time"
                     required
+                    value={this.state.startTime}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -129,6 +133,7 @@ export default class UpdateAppointment extends Component {
                     name="endTimel"
                     placeholder="End Time"
                     required
+                    value={this.state.endTimel}
                     onChange={this.handleChange}
                   />
                 </div>

@@ -38,11 +38,48 @@ export default class AttendantList extends Component {
     });
   }
 
-  async delete(attendantId) {
-    await axios.delete(deleteattentdentURL+"/"+attendantId).then((res) => {
-      console.error("Response Data => "+res.data);
-      console.log(deleteattentdentURL+"/"+attendantId);
+  async delete(id) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
     });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you want to delete " + id + " attendant?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your attendant " + id + " has been deleted.",
+            "success"
+          );
+          axios.delete(deleteattentdentURL + id, {
+            headers: {
+              'Authorization': 'Bearer '+localStorage.getItem("AmToken")+'', 
+              'Accept': 'application/json'
+            }
+          }).then(() => {
+            this.componentDidMount();
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your " + id + " attendant record is safe :)",
+            "error"
+          );
+        }
+      });
   };
 
 
@@ -102,14 +139,14 @@ export default class AttendantList extends Component {
                         size="2x"
                         icon={faEdit}
                         onClick={() => {
-                          localStorage.setItem("attendentId", attendent.attendantId);
+                          localStorage.setItem("attendentId", attendent.id);
                           window.location = "/updateAttendent";
                         }}
                       />
                       <FontAwesomeIcon
                         size="2x"
                         icon={faTrash}
-                        onClick={(e) => this.delete(attendent.attendantId)}
+                        onClick={(e) => this.delete(attendent.id)}
                       />
                     </td>
                   </tr>
